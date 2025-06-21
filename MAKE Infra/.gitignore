@@ -1,0 +1,16 @@
+**/.DS_Store
+.DS_Store
+node_modules
+ca.crt
+ca.key
+ca.srl
+client.csr
+client.key
+client.srl
+expired.crt
+expired.key
+expired.csr
+server.crt
+server.key
+server.csr
+.dockerignore

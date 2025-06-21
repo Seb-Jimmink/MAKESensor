@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sensors & Firmware Management</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/sensors.css">
+  <script src="js/sensors.js" defer></script>
+</head>
+<body>
+  <a href="index.html" class="nav-icon">📊</a>
+  <a href="machines.html" class="nav-icon">🤖</a>
+
+  <main class="sensor-main">
+    <h1>Sensors & Firmware Management</h1>
+    <div id="sensor-message"></div>
+    <div class="sensor-panels-container">
+      <section class="sensor-panel" id="sensors-overview-panel">
+        <h2>Detected Sensors</h2>
+        <div id="sensors-overview-list" class="sensor-card-grid"></div>
+      </section>
+      <section class="sensor-panel" id="machines-panel">
+        <h2>Machines & Components</h2>
+        <label>Select Machine:
+          <select id="machine-select"></select>
+        </label>
+        <div id="machine-components-list"></div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Sensor Edit/Assign Modal -->
+  <div id="sensor-modal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <h2 id="sensor-modal-title">Edit Sensor</h2>
+      <form id="sensor-form" autocomplete="off">
+        <input type="hidden" id="sensor-id">
+        <div><label>Name:<input type="text" id="sensor-name" required></label></div>
+        <div><label>Type:<input type="text" id="sensor-type"></label></div>
+        <div><label>Microcontroller:<input type="text" id="sensor-mcu"></label></div>
+        <div><label>Manufacturer:<input type="text" id="sensor-manufacturer"></label></div>
+        <div><label>MQTT topic:<input type="text" id="sensor-mqtt-topic"></label></div>
+        <div>
+          <label>Status:
+            <select id="sensor-status">
+              <option value="PENDING">PENDING</option>
+              <option value="ACTIVE">ACTIVE</option>
+              <option value="DISABLED">DISABLED</option>
+              <option value="OFFLINE">OFFLINE</option>
+            </select>
+          </label>
+        </div>
+        <div>
+          <label>Assign to machine:
+            <select id="sensor-machine-id"></select>
+          </label>
+        </div>
+        <div>
+          <label>Assign to component:
+            <select id="sensor-component-id"></select>
+          </label>
+        </div>
+        <button type="submit" id="sensor-save-btn">Save</button>
+        <button type="button" id="sensor-cancel-btn">Cancel</button>
+        <button type="button" id="sensor-delete-btn" style="float:right;background:#be4242;">Delete</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Sensor Fields Modal -->
+  <div id="fields-modal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <h2>Manage MQTT Fields</h2>
+      <div id="fields-list"></div>
+      <form id="add-field-form" style="display:flex; gap: 0.5em; margin-top: 0.7em;">
+        <input type="text" id="field-name" placeholder="Field name (e.g. temperature)" required>
+        <input type="text" id="field-unit" placeholder="Unit (e.g. °C)">
+        <button type="submit" id="save-field-btn">Add Field</button>
+        <button type="button" id="cancel-edit-field-btn" style="display:none;">Cancel</button>
+      </form>
+      <button type="button" id="close-fields-modal" style="margin-top:1em;">Close</button>
+    </div>
+  </div>
+
+  <!-- Firmware Management Modal -->
+  <div id="firmware-modal" class="modal" style="display:none;">
+    <div class="modal-content firmware-modal-content">
+      <span class="close" id="firmware-modal-close">&times;</span>
+      <h2>
+        Firmware for <span id="firmware-modal-sensor-name"></span>
+        <span id="firmware-modal-mac" class="firmware-mac"></span>
+      </h2>
+      <div class="firmware-modal-header">
+        <div>
+          <b>Current:</b>
+          <span id="firmware-current-version" class="firmware-version"></span>
+          <span id="firmware-current-type" class="badge"></span>
+          <span id="firmware-current-date" class="firmware-date"></span>
+        </div>
+        <div>
+          <b>Total size:</b>
+          <span id="firmware-total-size"></span>
+        </div>
+      </div>
+      <hr>
+      <form id="firmware-upload-form" enctype="multipart/form-data">
+        <div class="firmware-upload-fields">
+          <input type="text" id="firmware-upload-version" placeholder="Version (e.g. 2.1.0)" required>
+          <select id="firmware-upload-type">
+            <option value="production">Production</option>
+            <option value="development">Development</option>
+          </select>
+          <input type="file" id="firmware-upload-file" accept=".ino.bin" required>
+          <button type="submit">Upload & OTA</button>
+        </div>
+        <div id="firmware-upload-status"></div>
+      </form>
+      <hr>
+      <!-- Filters and sorting -->
+      <div class="firmware-filters" style="margin-bottom:0.5em;">
+        <label>Type:
+          <select id="firmware-filter-env">
+            <option value="">All</option>
+            <option value="production">Production</option>
+            <option value="development">Development</option>
+            <option value="deleted">Deleted</option>
+          </select>
+        </label>
+        <label>Version: <input type="text" id="firmware-filter-version" placeholder="Version"></label>
+        <label>Date: <input type="date" id="firmware-filter-date"></label>
+        <label>Min size (KB): <input type="number" id="firmware-filter-size" placeholder="KB"></label>
+        <label>Sort by:
+          <select id="firmware-sort-key">
+            <option value="uploaded_at">Date</option>
+            <option value="version">Version</option>
+            <option value="file_size_bytes">Size</option>
+          </select>
+          <select id="firmware-sort-dir">
+            <option value="desc">↓</option>
+            <option value="asc">↑</option>
+          </select>
+        </label>
+        <button id="firmware-clear-filters" style="margin-left:1em;">Clear</button>
+      </div>
+      <!-- Firmware Sections: -->
+      <div id="firmware-section-production"></div>
+      <div id="firmware-section-development"></div>
+      <div id="firmware-section-deleted"></div>
+    </div>
+  </div>
+</body>
+</html>

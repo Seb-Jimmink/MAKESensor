@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Machines & Components Management</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/machines.css">
+  <script src="js/machines.js" defer></script>
+</head>
+<body>
+  <a href="index.html" class="nav-icon">📊</a>
+  <a href="sensors.html" class="nav-icon">⚙️</a>
+  <main>
+    <h1>Machines</h1>
+    <div id="message"></div>
+    <button id="open-add-machine-modal" style="margin-bottom:1.3em;">Add Machine</button>
+    <div id="machines-list"></div>
+  </main>
+
+  <!-- Add/Edit Machine Modal -->
+  <div id="machine-modal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <h2 id="machine-modal-title">Add Machine</h2>
+      <form id="machine-form" autocomplete="off">
+        <input type="hidden" id="edit-machine-id" name="id">
+        <input type="text" id="machine-name" name="name" placeholder="Name" required>
+        <input type="text" id="machine-supplier" name="supplier" placeholder="Supplier">
+        <input type="text" id="machine-location" name="location" placeholder="Location">
+        <input type="text" id="machine-description" name="description" placeholder="Description">
+        <button type="submit" id="save-machine-btn">Save Machine</button>
+        <button type="button" id="cancel-machine-btn">Cancel</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Machine Detail Modal (as before) -->
+  <div id="machine-detail-modal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <h2>Machine Details</h2>
+      <form id="machine-detail-form">
+        <input type="hidden" id="detail-machine-id" name="machine_id">
+        <input type="text" name="serial_number" placeholder="Serial Number">
+        <input type="text" name="current_job" placeholder="Current Job">
+        <input type="date" name="install_date" placeholder="Install Date">
+        <input type="date" name="last_checkup_date" placeholder="Last Checkup">
+        <input type="date" name="next_checkup_date" placeholder="Next Checkup">
+        <textarea name="notes" placeholder="Notes"></textarea>
+        <input type="hidden" name="detail_id" id="detail-id">
+        <button type="submit" id="save-detail-btn">Save Detail</button>
+        <button type="button" id="close-detail-modal">Cancel</button>
+        <button type="button" id="delete-detail-btn" style="float:right;background:#be4242;">Delete</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

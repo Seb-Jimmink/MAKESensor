@@ -1,0 +1,206 @@
+/* sensors.css */
+
+body {
+  font-family: system-ui, Arial, sans-serif;
+  background: #f7f7f7;
+  color: #222;
+}
+main.sensor-main {
+  max-width: 1100px;
+  margin: 2rem auto;
+  background: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+}
+h1 { margin-top: 0; margin-bottom: 2rem; font-size: 2rem; }
+.sensor-container {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  justify-content: stretch;
+}
+.sensor-panel {
+  background: #f4f8ff;
+  flex: 1 1 0;
+  padding: 1.5rem 1.2rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(60,80,160,0.04);
+  min-width: 300px;
+  min-height: 360px;
+}
+#sensor-message {
+  min-height: 1.5em; margin-bottom: 1em;
+}
+#sensor-message.error {
+  color: #b13d3d; background: #ffeaea; border-left: 3px solid #b13d3d;
+  padding: 0.35em 1em; border-radius: 2px;
+}
+#sensor-message.success {
+  color: #13713d; background: #e7ffe5; border-left: 3px solid #13713d;
+  padding: 0.35em 1em; border-radius: 2px;
+}
+.sensor-card {
+  background: #fff;
+  margin: 0.7em 0;
+  padding: 0.8em 0.7em;
+  border-radius: 6px;
+  border-left: 4px solid #2376e1;
+  box-shadow: 0 1px 4px rgba(44,56,135,0.06);
+  position: relative;
+  display: flex; flex-direction: column;
+  gap: 0.1em;
+}
+.sensor-card strong { font-size: 1.13em; }
+.sensor-card small { color: #666; margin-bottom: 0.18em; }
+.sensor-card .sensor-edit-btn,
+.sensor-card .sensor-fields-btn,
+.sensor-card .sensor-delete-btn {
+  margin-top: 0.5em;
+  background: #218e6d;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 0.22em 1em;
+  font-size: 0.96em;
+  cursor: pointer;
+  transition: background 0.13s;
+  width: 7em;
+  margin-right: 0.5em;
+  margin-bottom: 0.3em;
+  display: inline-block;
+}
+.sensor-card .sensor-fields-btn {
+  background: #2376e1;
+}
+.sensor-card .sensor-fields-btn:hover {
+  background: #195bb2;
+}
+.sensor-card .sensor-edit-btn:hover {
+  background: #185d45;
+}
+.sensor-card .sensor-delete-btn {
+  background: #e9625e;
+}
+.sensor-card .sensor-delete-btn:hover {
+  background: #b13d3d;
+}
+#component-select {
+  padding: 0.4em 1em;
+  font-size: 1.05em;
+  margin-bottom: 1.2em;
+  border-radius: 4px;
+  border: 1px solid #c6d3ed;
+}
+.modal {
+  position: fixed; left: 0; top: 0; width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.20); display: flex; align-items: center; justify-content: center; z-index: 99;
+}
+.modal-content {
+  background: #fff; padding: 2rem; border-radius: 9px; box-shadow: 0 2px 16px rgba(0,0,0,0.11);
+  min-width: 340px;
+  max-width: 94vw;
+}
+#sensor-modal form > div { margin-bottom: 0.85em; }
+#sensor-modal input, #sensor-modal select,
+#add-field-form input, #add-field-form select {
+  font-size: 1em;
+  padding: 0.4em 0.8em;
+  border-radius: 4px;
+  border: 1px solid #c5c5e0;
+  width: 98%;
+  box-sizing: border-box;
+}
+#sensor-modal button, #fields-modal button, #add-field-form button {
+  background: #2376e1; color: white; border: none; border-radius: 4px;
+  cursor: pointer; transition: background 0.18s; margin-top: 0.5em;
+  padding: 0.55em 1.1em; font-size: 1em;
+}
+#sensor-modal button:hover, #sensor-modal button:focus,
+#fields-modal button:hover, #fields-modal button:focus {
+  background: #195bb2;
+}
+#sensor-modal #sensor-cancel-btn {
+  background: #dedede;
+  color: #444;
+  border: none;
+  border-radius: 4px;
+  margin-left: 0.7em;
+}
+#sensor-modal #sensor-cancel-btn:hover { background: #b3b3b3; }
+#sensor-modal #sensor-delete-btn { float: right; background: #e9625e;}
+#fields-list {
+  margin-top: 0.4em;
+  margin-bottom: 0.7em;
+}
+.sensor-field {
+  display: flex; align-items: center; gap: 0.8em;
+  margin-bottom: 0.3em; font-size: 0.97em;
+}
+.sensor-field input {
+  font-size: 0.98em;
+  padding: 0.19em 0.4em;
+  border: 1px solid #c5c5e0;
+  border-radius: 3px;
+  width: 7em;
+}
+.sensor-field button {
+  border: none; background: #eee; cursor: pointer;
+  padding: 0.14em 0.6em; border-radius: 3px; font-size: 1em;
+  margin-left: 0.4em;
+}
+.sensor-field button:hover { background: #efcfcf; }
+@media (max-width: 950px) {
+  .sensor-container { flex-direction: column; }
+  .sensor-panel { margin-bottom: 2em;}
+}
+
+.sensor-card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  align-items: flex-start;
+}
+.sensor-card .firmware-btn {
+  background: #4079e9;
+  color: #fff;
+  margin-left: 0.3em;
+  border: none;
+}
+.sensor-card .firmware-btn:hover { background: #23498b; }
+.firmware-modal-content { min-width: 450px; max-width: 800px; }
+.firmware-table th, .firmware-table td { padding: 0.35em 0.7em; }
+.badge { border-radius: 7px; padding: 0.1em 0.7em; font-size: 0.93em; font-weight: 600; }
+.badge.prod { background: #b2e2e2; color: #205b5b; }
+.badge.dev { background: #fdeac7; color: #8d6a1a; }
+.badge.inactive { background: #e0e0e0; color: #888; }
+.badge.active { background: #b1f7c1; color: #107b3c; }
+.firmware-link { color: #4079e9; text-decoration: underline; cursor: pointer; }
+.firmware-upload-fields { display: flex; gap: 0.8em; align-items: center; }
+.firmware-upload-fields input, .firmware-upload-fields select {
+  font-size: 1em; padding: 0.4em 0.7em; border-radius: 4px; border: 1px solid #c5c5e0;
+}
+.firmware-upload-fields button { padding: 0.5em 1.2em; }
+.firmware-modal-header { display: flex; justify-content: space-between; margin-bottom: 0.4em; }
+@media (max-width: 900px) {
+  .firmware-modal-content { min-width: unset; max-width: 98vw; }
+  .sensor-card-grid { flex-direction: column; }
+}
+
+.firmware-section-header {
+  font-size: 1.14em;
+  font-weight: 600;
+  color: #1846a0;
+  margin: 1.1em 0 0.3em 0.1em;
+  padding: 0.3em 0.5em;
+  background: #e7efff;
+  border-radius: 6px;
+}
+.firmware-table { width: 100%; margin-bottom: 1em; border-collapse: collapse; }
+.firmware-table th, .firmware-table td { border-bottom: 1px solid #eef; }
+.firmware-table tr.deleted { background: #ffeded; color: #a03030; }
+.firmware-table tr:hover { background: #eaf3ff; }
+.firmware-controls label { margin-right: 1.4em; }
+.firmware-table .badge-prod { background: #caf0e5; color: #2e695a;}
+.firmware-table .badge-dev { background: #f8e4b7; color: #996b11;}
+.empty-msg { color: #aaa; padding-left: 1em; font-style: italic; }

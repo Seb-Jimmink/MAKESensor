@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./public
+      args:
+        CHARTJS_VERSION: ${CHARTJS_VERSION}
+    container_name: frontend
+
+  # Optional: Nginx proxy for HTTPS
+  nginx_proxy:
+    image: nginx:alpine
+    container_name: nginx_proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./public:/usr/share/nginx/html
+      - ./nginx/nginx.conf.template:/etc/nginx/nginx.conf.template:ro
+      - ./nginx/entrypoint.sh:/entrypoint.sh
+      - nginx_conf:/etc/nginx/
+    entrypoint: ["/entrypoint.sh"]
+    env_file:
+      - .env
+
+volumes:
+  nginx_conf:

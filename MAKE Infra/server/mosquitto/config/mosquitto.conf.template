@@ -1,0 +1,28 @@
+allow_anonymous false
+password_file $PASSWD_PATH
+
+listener 1883
+protocol mqtt
+
+listener 1884
+protocol mqtt
+
+listener 8883
+protocol mqtt
+cafile $CERT_PATH/ca.crt
+certfile $CERT_PATH/server.crt
+keyfile $CERT_PATH/server.key
+require_certificate true
+
+listener 8885
+protocol mqtt
+cafile $CERT_PATH/ca.crt
+certfile $CERT_PATH/server.crt
+keyfile $CERT_PATH/server.key
+require_certificate true
+
+listener 8091
+protocol websockets
+cafile $CERT_PATH/ca.crt
+certfile $CERT_PATH/server.crt
+keyfile $CERT_PATH/server.key

@@ -1,0 +1,82 @@
+/* styles.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 7%;
+  background-color: #0c4d5e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2%;
+  gap: 2em;
+}
+
+.nav-icon {
+  font-size: 2em;
+  color: white;
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+
+.nav-icon:hover {
+  transform: scale(1.1);
+}
+
+.logo {
+  margin-top: auto;
+  margin-bottom: 1em;
+  writing-mode: vertical-lr;
+  color: #3ed2e8;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.main-content {
+  width: 93%;
+  padding: 2%;
+  display: flex;
+  flex-direction: column;
+  gap: 2%;
+  background-color: #f4f4f4;
+  overflow-y: auto;
+}
+
+.controls {
+  margin-bottom: 1em;
+}
+
+.controls label, .controls input, .controls select {
+  margin-top: 0.5em;
+  display: block;
+}
+
+.graph-area {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1em;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+canvas {
+  max-width: 100%;
+}
+
+#videoContainer {
+  margin-top: 2em;
+  display: none;
+}
+
+#videoContainer.video-visible {
+  display: block;
+}

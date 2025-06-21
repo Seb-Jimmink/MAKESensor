@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sound Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/chart.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+  <script defer src="js/script.js"></script>
+</head>
+<body>
+  <div class="sidebar">
+    <a href="index.html" class="nav-icon">📊</a>
+    <a href="machines.html" class="nav-icon">🤖</a>
+    <a href="sensors.html" class="nav-icon">⚙️</a>
+    <a href="planning.html" class="nav-icon">📅</a>
+    <div class="logo">MAKE</div>
+  </div>
+
+  <main class="main-content">
+    <section class="controls">
+      <h1>Live Sound Readings</h1>
+
+      <label>Visible Points: <span id="pointCount">50</span></label>
+      <input type="range" min="10" max="100" value="50" id="pointSlider" />
+
+      <label>Source:
+        <select id="sourceSelect">
+          <option value="all">All</option>
+          <option value="mic1">Mic 1</option>
+          <option value="mic2">Mic 2</option>
+        </select>
+      </label>
+    </section>
+
+    <section class="graph-area">
+      <canvas id="soundChart"></canvas>
+    </section>
+
+    <section id="videoContainer" class="video-hidden">
+      <iframe id="ytVideo" width="560" height="315"
+        src=""
+        title="YouTube video player"
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        allowfullscreen>
+      </iframe>
+    </section>
+  </main>
+</body>
+</html>

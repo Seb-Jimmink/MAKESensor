@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  mosquitto:
+    build: ./mosquitto
+    container_name: mosquitto
+    ports:
+      - "1883:1883"
+      - "1884:1884"
+      - "8883:8883"
+      - "8885:8885"
+      - "8091:8091"
+    volumes:
+      - ./mosquitto/certs:/mosquitto/certs
+      - ./mosquitto/passwd:/mosquitto/passwd
+    environment:
+      CERT_PATH: ${CERT_PATH}
+      PASSWD_PATH: ${PASSWD_PATH}
+      MQTT_USER: ${MQTT_USER}
+      MQTT_PASS: ${MQTT_PASS}
+    env_file:
+      - .env
+
+  postgres:
+    image: postgres:14
+    container_name: ${POSTGRES_HOST}
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  backend:
+    build: ./backend
+    container_name: backend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mosquitto
+      - postgres
+    volumes:
+      - ./mosquitto/certs:/mosquitto/certs
+    env_file:
+      - .env
+
+  dbmate:
+    image: amacneil/dbmate
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: "postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}?sslmode=disable"
+    volumes:
+      - ./db/migrations:/db/migrations
+    command: ["up"]
+
+volumes:
+  pgdata:
