@@ -17,7 +17,7 @@ Step 5. Open the frontend folder where the docker-compse file is located.
 
 Step 6. Run the following command 'docker compose up --build'. 
 
-Step 7. If you did this every thing should run fine, the webpage is accessible on the IP your fronend is hosted. (If both containers are hosted on the same change, the IP is the same as the IPV4 IP of the server)
+Step 7. If you did this every thing should run fine, the webpage is accessible on the IP your fronend is hosted. (If both containers are hosted on the same machine, the IP is the same as the IPV4 IP of the server)
 
 Step 8. If you want to stop the docker containers, use the following keys when in the running terminal. CTRL+C
 
