@@ -9,7 +9,7 @@ Step 1. Change the server .env variables to your desire and to your machines loc
 
 Step 1.1 POSTGRES_DB= {Fill in with an desierd databse name}
 
-Step 1.2 POSTGRES_USER= (Fill in with an desierd database user name}
+Step 1.2 POSTGRES_USER= {Fill in with an desierd database user name}
 
 Step 1.3 POSTGRES_PASSWORD= {Fill in with an desierd database user password}
 
