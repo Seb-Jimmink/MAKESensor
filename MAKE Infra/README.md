@@ -11,18 +11,22 @@ Step 2. Open the server folder where the docker-compse file is located.
 
 Step 3. Run the following command 'docker compose up --build'.
 
-Step 4. Change the frontend .env variables based on the server varibles.
+Step 4. Change the frontend .env variables based on the server variables.
 
 Step 5. Open the frontend folder where the docker-compse file is located.
 
 Step 6. Run the following command 'docker compose up --build'. 
 
-Step 7. If you did this every thing schould run file, the webpage is accecable on the IP you're fronend is hosted. (If both containers are hosted on the same change, the IP is the same as the IPV4 IP of the server)
+Step 7. If you did this every thing should run fine, the webpage is accessible on the IP your fronend is hosted. (If both containers are hosted on the same change, the IP is the same as the IPV4 IP of the server)
 
 Step 8. If you want to stop the docker containers, use the following keys when in the running terminal. CTRL+C
 
 
-For subsucent boots:
+For subsuquent boots:
+
+Step 1. Go to docker desktop and start the frontend and server containers.
+
+or
 
 Step 1. Open the server folder where the docker-compse file is located.
 
