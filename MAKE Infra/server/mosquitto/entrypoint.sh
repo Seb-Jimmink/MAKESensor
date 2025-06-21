@@ -14,6 +14,16 @@ else
   echo "Certificates already exist. Skipping generation."
 fi
 
+if [ -f "$CERT_PATH/server.key" ]; then
+  # Set mosquitto as owner and set proper permissions
+  chown -R mosquitto:mosquitto "$CERT_PATH"
+  chmod 600 "$CERT_PATH/server.key"
+  chmod 644 "$CERT_PATH/server.crt" "$CERT_PATH/ca.crt"
+  echo "Set permissions on certificate files"
+else
+  echo "WARNING: Certificate files still missing!"
+fi
+
 # 2. Create password file if it does not exist, otherwise update
 if [ -n "$MQTT_USER" ] && [ -n "$MQTT_PASS" ]; then
   if [ ! -f "$PASSWD_PATH" ]; then

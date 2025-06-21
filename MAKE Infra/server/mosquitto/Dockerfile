@@ -8,7 +8,9 @@ RUN apk add --no-cache gettext
 
 # Copy config template and entrypoint
 COPY config/mosquitto.conf.template /mosquitto/config/mosquitto.conf.template
-COPY entrypoint.sh /mosquitto/entrypoint.sh
+COPY entrypoint.sh /tmp/entrypoint.sh
+RUN cat /tmp/entrypoint.sh | tr -d '\r' > /mosquitto/entrypoint.sh && \
+    rm /tmp/entrypoint.sh
 
 # Make entrypoint executable
 RUN chmod +x /mosquitto/entrypoint.sh

@@ -11,8 +11,9 @@ RUN npm install
 COPY . .
 
 # Copy and set up the startup script
-COPY start.sh /backend/start.sh
-RUN chmod +x /backend/start.sh
+COPY start.sh /tmp/start.sh
+RUN cat /tmp/start.sh | tr -d '\r' > /backend/start.sh && \
+    chmod +x /backend/start.sh
 
 # Expose the backend port
 EXPOSE 3000

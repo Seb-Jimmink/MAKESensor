@@ -6,11 +6,12 @@ ca.key
 ca.srl
 client.csr
 client.key
-client.srl
+client.crt
 expired.crt
 expired.key
 expired.csr
 server.crt
 server.key
 server.csr
+passwd.txt
 .dockerignore

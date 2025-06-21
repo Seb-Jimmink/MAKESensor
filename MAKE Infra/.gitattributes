@@ -1,0 +1,11 @@
+# Set default behavior to LF line endings
+* text=auto eol=lf
+
+# Explicitly enforce LF for scripts and config files
+*.sh text eol=lf
+*.bash text eol=lf
+Dockerfile text eol=lf
+docker-compose.yml text eol=lf
+*.conf text eol=lf
+*.template text eol=lf
+entrypoint* text eol=lf
