@@ -29,6 +29,8 @@ Step 3. Run the following command 'docker compose up --build'.
 
 Step 4. Change the frontend .env variables based on the server variables.
 
+Step 4.1 BACKEND_HOST= {Fill in with the server API IPV4 IP address}
+
 Step 5. Open the frontend folder where the docker-compse file is located.
 
 Step 6. Run the following command 'docker compose up --build'. 
