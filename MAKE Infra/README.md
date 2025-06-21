@@ -1,6 +1,6 @@
 Before first boot:
 
-Make sure you have docker desktop installed.
+Make sure you have docker desktop installed, open and running.
 
 
 For first boot:
