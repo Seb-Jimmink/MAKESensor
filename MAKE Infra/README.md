@@ -7,6 +7,15 @@ For first boot:
 
 Step 1. Change the server .env variables to your desire and to your machines local IPV4 IP address.
 
+Step 1.1 POSTGRES_DB= {Fill in with an desierd databse name}
+Step 1.2 POSTGRES_USER= (Fill in with an desierd database user name}
+Step 1.3 POSTGRES_PASSWORD= {Fill in with an desierd database user password}
+Step 1.4 POSTGRES_HOST= {Fill in a desierd database container name}
+Step 1.5 MQTT_USER= {Fill in an desierd MQTT user name}
+Step 1.6 MQTT_PASS= {Fill in an desierd MQTT user password}
+Step 1.7 API_IP= {Fill in the IPV4 IP of the machine where the server is running}
+Step 1.8 FRONTEND_IP= {Fill in the IPV4 IP of the machine where the frontend is running}
+
 Step 2. Open the server folder where the docker-compse file is located.
 
 Step 3. Run the following command 'docker compose up --build'.
