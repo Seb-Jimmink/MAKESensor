@@ -23,7 +23,7 @@ Step 1.7 API_IP= {Fill in the IPV4 IP of the machine where the server is running
 
 Step 1.8 FRONTEND_IP= {Fill in the IPV4 IP of the machine where the frontend is running}
 
-Step 2. Open the server folder where the docker-compse file is located.
+Step 2. Open a terminal in the server folder where the docker-compse file is located.
 
 Step 3. Run the following command 'docker compose up --build'.
 
@@ -31,7 +31,7 @@ Step 4. Change the frontend .env variables based on the server variables.
 
 Step 4.1 BACKEND_HOST= {Fill in with the server API IPV4 IP address}
 
-Step 5. Open the frontend folder where the docker-compse file is located.
+Step 5. Open a terminal in the frontend folder where the docker-compse file is located.
 
 Step 6. Run the following command 'docker compose up --build'. 
 
