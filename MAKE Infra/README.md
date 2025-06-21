@@ -5,7 +5,7 @@ Make sure you have docker desktop installed.
 
 For first boot:
 
-Step 1. Change the server .env variables to you're desire and or correct IP.
+Step 1. Change the server .env variables to youre desire and to you're local IPV4 IP address.
 
 Step 2. Open the server folder where the docker-compse file is located.
 
