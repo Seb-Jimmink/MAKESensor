@@ -45,4 +45,8 @@ Step 3. Run 'docker compse up' in the terminal.
 
 Step 4. Do the same 3 steps for the 'frontend' container.
 
-Step 5. Stop the containers from running using CTRL+C in the terminal, or stop the containers in the docker desktop.
+Step 5. Stop the containers from running using CTRL+C in the terminal
+
+or 
+
+Step 5. Stop the containers in the docker desktop frontend.
