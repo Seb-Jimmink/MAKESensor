@@ -40,9 +40,9 @@ Make sure all docker files and files than end in .sh are set to LF line endings 
 
 **Step 6.** Run the following command 'docker compose up --build'. 
 
-**Step 7.** If you did this every thing should run fine, the webpage should be accessible on the IP your fronend is hosted. (If both containers are hosted on the same machine, the IP is the same as the IPV4 IP of the server) (and if you changed the port from 80 you will have to access the site through that port, so IPV4:SelectedPort)
+**Step 7.** If you did this every thing should run fine, the webpage should be accessible on the IP your fronend is hosted. (If you changed the port from 80 you will have to access the site through that port, so IPV4:**SelectedPort**)
 
-**Step 8.** If you want to stop the docker containers, use the following keys when in the running terminals. CTRL+C
+**Step 8.** If you want to stop the docker containers, use the following keys when in the running terminals. **CTRL+C**
 
 *or*
 
@@ -64,7 +64,7 @@ Make sure all docker files and files than end in .sh are set to LF line endings 
 
 **Step 4.** Do the same 3 steps for the 'frontend' container.
 
-**Step 5.** Stop the containers from running using CTRL+C in both terminals
+**Step 5.** Stop the containers from running using **CTRL+C** in both terminals
 
 *or*
 
@@ -78,7 +78,7 @@ Make sure all docker files and files than end in .sh are set to LF line endings 
 
 **Step 2.** Run the follwoing command "docker compose down -v --rmi all", do this for both containers.
 
-**Step 3.** (Only for server) Delete all the cert file in the mosquitto broker manually, leave the generate-certs.sh file.
+**Step 3.** *(Only for server)* Delete all the cert file in the mosquitto broker manually, leave the generate-certs.sh file.
 
 **Step 4.** Remove the .env credentials if confedential/desierd.
 
